@@ -1,0 +1,1152 @@
+{
+  "total_checks": 141,
+  "total_pass": 119,
+  "total_fail": 22,
+  "recording_verdicts": {
+    "R01": "PASS",
+    "R02": "FAIL",
+    "R03": "FAIL",
+    "R04": "FAIL",
+    "R05": "PASS",
+    "R06": "FAIL",
+    "R07": "FAIL",
+    "R08": "FAIL",
+    "R09": "FAIL",
+    "R10": "FAIL",
+    "R11": "PASS",
+    "R12": "PASS"
+  },
+  "recordings_pass": 4,
+  "recordings_fail": 8,
+  "recordings_total": 12,
+  "details": [
+    {
+      "rule": "http_status_code",
+      "expected": "200",
+      "observed": "200",
+      "verdict": "PASS",
+      "reason": "Expected HTTP 200, got 200.",
+      "recording_id": "R01"
+    },
+    {
+      "rule": "response_status_field",
+      "expected": "ANSWERED",
+      "observed": "ANSWERED",
+      "verdict": "PASS",
+      "reason": "Expected status=ANSWERED, got ANSWERED.",
+      "recording_id": "R01"
+    },
+    {
+      "rule": "citation_eligibility",
+      "expected": "all cited chunks in ['P02', 'P07', 'P08', 'P09', 'P10', 'P11']",
+      "observed": "cited ['P02']",
+      "verdict": "PASS",
+      "reason": "All cited passages are eligible.",
+      "recording_id": "R01"
+    },
+    {
+      "rule": "quotation_integrity",
+      "expected": "all citation quotes match corpus text",
+      "observed": "all match",
+      "verdict": "PASS",
+      "reason": "All citation quotes faithfully reproduce the source passage.",
+      "recording_id": "R01"
+    },
+    {
+      "rule": "generation_context_eligibility",
+      "expected": "all context ids in ['P02', 'P07', 'P08', 'P09', 'P10', 'P11']",
+      "observed": "sent ['P02']",
+      "verdict": "PASS",
+      "reason": "All passages sent to generation are eligible.",
+      "recording_id": "R01"
+    },
+    {
+      "rule": "provider_failure_handling",
+      "expected": "provider event handled correctly",
+      "observed": "provider_event=success, HTTP 200",
+      "verdict": "PASS",
+      "reason": "Provider event does not indicate a failure, or failure is correctly mapped.",
+      "recording_id": "R01"
+    },
+    {
+      "rule": "prohibited_claims",
+      "expected": "no prohibited content",
+      "observed": "no answer text or no prohibitions defined",
+      "verdict": "PASS",
+      "reason": "Nothing to check.",
+      "recording_id": "R01"
+    },
+    {
+      "rule": "required_facts",
+      "expected": "answer contains: ['certification reimbursement limit is INR 25000']",
+      "observed": "all present",
+      "verdict": "PASS",
+      "reason": "All required facts found in the answer.",
+      "recording_id": "R01"
+    },
+    {
+      "rule": "conflict_detection",
+      "expected": "no conflict \u2014 single or no eligible passage for topic",
+      "observed": "1 passage(s) for 'certification'",
+      "verdict": "PASS",
+      "reason": "No conflicting passages for this topic.",
+      "recording_id": "R01"
+    },
+    {
+      "rule": "no_generation_on_invalid_request",
+      "expected": "N/A \u2014 not an invalid/unauthorized request",
+      "observed": "HTTP 200",
+      "verdict": "PASS",
+      "reason": "Check only applies to 400/401 responses.",
+      "recording_id": "R01"
+    },
+    {
+      "rule": "error_body_structure",
+      "expected": "N/A \u2014 not an error response",
+      "observed": "HTTP 200",
+      "verdict": "PASS",
+      "reason": "Check only applies to error responses.",
+      "recording_id": "R01"
+    },
+    {
+      "rule": "no_financial_actions",
+      "expected": "no approval/guarantee language",
+      "observed": "none found",
+      "verdict": "PASS",
+      "reason": "No financial action language detected.",
+      "recording_id": "R01"
+    },
+    {
+      "rule": "http_status_code",
+      "expected": "200",
+      "observed": "200",
+      "verdict": "PASS",
+      "reason": "Expected HTTP 200, got 200.",
+      "recording_id": "R02"
+    },
+    {
+      "rule": "response_status_field",
+      "expected": "ANSWERED",
+      "observed": "ANSWERED",
+      "verdict": "PASS",
+      "reason": "Expected status=ANSWERED, got ANSWERED.",
+      "recording_id": "R02"
+    },
+    {
+      "rule": "citation_eligibility",
+      "expected": "all cited chunks in ['P05']",
+      "observed": "cited ['P02'], ineligible: ['P02']",
+      "verdict": "FAIL",
+      "reason": "Citations include ineligible passage(s): ['P02'].",
+      "recording_id": "R02"
+    },
+    {
+      "rule": "quotation_integrity",
+      "expected": "all citation quotes match corpus text",
+      "observed": "all match",
+      "verdict": "PASS",
+      "reason": "All citation quotes faithfully reproduce the source passage.",
+      "recording_id": "R02"
+    },
+    {
+      "rule": "generation_context_eligibility",
+      "expected": "all context ids in ['P05']",
+      "observed": "sent ['P02'], ineligible: ['P02']",
+      "verdict": "FAIL",
+      "reason": "Ineligible passage(s) sent to generation: ['P02'].",
+      "recording_id": "R02"
+    },
+    {
+      "rule": "provider_failure_handling",
+      "expected": "provider event handled correctly",
+      "observed": "provider_event=success, HTTP 200",
+      "verdict": "PASS",
+      "reason": "Provider event does not indicate a failure, or failure is correctly mapped.",
+      "recording_id": "R02"
+    },
+    {
+      "rule": "prohibited_claims",
+      "expected": "answer must not contain: ['INR 25000', 'INR 25,000']",
+      "observed": "found: ['INR 25,000'] in 'Your annual certification limit is INR 25,000.'",
+      "verdict": "FAIL",
+      "reason": "Answer contains prohibited content: ['INR 25,000'].",
+      "recording_id": "R02"
+    },
+    {
+      "rule": "required_facts",
+      "expected": "answer contains: ['certification reimbursement limit for contractors is INR 10000']",
+      "observed": "missing: ['certification reimbursement limit for contractors is INR 10000'] in 'Your annual certification limit is INR 25,000.'",
+      "verdict": "FAIL",
+      "reason": "Required facts not found in answer: ['certification reimbursement limit for contractors is INR 10000'].",
+      "recording_id": "R02"
+    },
+    {
+      "rule": "conflict_detection",
+      "expected": "no conflict \u2014 single or no eligible passage for topic",
+      "observed": "1 passage(s) for 'certification'",
+      "verdict": "PASS",
+      "reason": "No conflicting passages for this topic.",
+      "recording_id": "R02"
+    },
+    {
+      "rule": "no_generation_on_invalid_request",
+      "expected": "N/A \u2014 not an invalid/unauthorized request",
+      "observed": "HTTP 200",
+      "verdict": "PASS",
+      "reason": "Check only applies to 400/401 responses.",
+      "recording_id": "R02"
+    },
+    {
+      "rule": "error_body_structure",
+      "expected": "N/A \u2014 not an error response",
+      "observed": "HTTP 200",
+      "verdict": "PASS",
+      "reason": "Check only applies to error responses.",
+      "recording_id": "R02"
+    },
+    {
+      "rule": "no_financial_actions",
+      "expected": "no approval/guarantee language",
+      "observed": "none found",
+      "verdict": "PASS",
+      "reason": "No financial action language detected.",
+      "recording_id": "R02"
+    },
+    {
+      "rule": "http_status_code",
+      "expected": "200",
+      "observed": "200",
+      "verdict": "PASS",
+      "reason": "Expected HTTP 200, got 200.",
+      "recording_id": "R03"
+    },
+    {
+      "rule": "response_status_field",
+      "expected": "ANSWERED",
+      "observed": "ANSWERED",
+      "verdict": "PASS",
+      "reason": "Expected status=ANSWERED, got ANSWERED.",
+      "recording_id": "R03"
+    },
+    {
+      "rule": "citation_eligibility",
+      "expected": "all cited chunks in ['P02', 'P07', 'P08', 'P09', 'P10', 'P11']",
+      "observed": "cited ['P01'], ineligible: ['P01']",
+      "verdict": "FAIL",
+      "reason": "Citations include ineligible passage(s): ['P01'].",
+      "recording_id": "R03"
+    },
+    {
+      "rule": "quotation_integrity",
+      "expected": "all citation quotes match corpus text",
+      "observed": "all match",
+      "verdict": "PASS",
+      "reason": "All citation quotes faithfully reproduce the source passage.",
+      "recording_id": "R03"
+    },
+    {
+      "rule": "generation_context_eligibility",
+      "expected": "all context ids in ['P02', 'P07', 'P08', 'P09', 'P10', 'P11']",
+      "observed": "sent ['P01'], ineligible: ['P01']",
+      "verdict": "FAIL",
+      "reason": "Ineligible passage(s) sent to generation: ['P01'].",
+      "recording_id": "R03"
+    },
+    {
+      "rule": "provider_failure_handling",
+      "expected": "provider event handled correctly",
+      "observed": "provider_event=success, HTTP 200",
+      "verdict": "PASS",
+      "reason": "Provider event does not indicate a failure, or failure is correctly mapped.",
+      "recording_id": "R03"
+    },
+    {
+      "rule": "prohibited_claims",
+      "expected": "answer must not contain: ['INR 40000', 'INR 40,000']",
+      "observed": "found: ['INR 40,000'] in 'The annual limit is INR 40,000.'",
+      "verdict": "FAIL",
+      "reason": "Answer contains prohibited content: ['INR 40,000'].",
+      "recording_id": "R03"
+    },
+    {
+      "rule": "required_facts",
+      "expected": "answer contains: ['certification reimbursement limit is INR 25000']",
+      "observed": "missing: ['certification reimbursement limit is INR 25000'] in 'The annual limit is INR 40,000.'",
+      "verdict": "FAIL",
+      "reason": "Required facts not found in answer: ['certification reimbursement limit is INR 25000'].",
+      "recording_id": "R03"
+    },
+    {
+      "rule": "conflict_detection",
+      "expected": "no conflict \u2014 single or no eligible passage for topic",
+      "observed": "1 passage(s) for 'certification'",
+      "verdict": "PASS",
+      "reason": "No conflicting passages for this topic.",
+      "recording_id": "R03"
+    },
+    {
+      "rule": "no_generation_on_invalid_request",
+      "expected": "N/A \u2014 not an invalid/unauthorized request",
+      "observed": "HTTP 200",
+      "verdict": "PASS",
+      "reason": "Check only applies to 400/401 responses.",
+      "recording_id": "R03"
+    },
+    {
+      "rule": "error_body_structure",
+      "expected": "N/A \u2014 not an error response",
+      "observed": "HTTP 200",
+      "verdict": "PASS",
+      "reason": "Check only applies to error responses.",
+      "recording_id": "R03"
+    },
+    {
+      "rule": "no_financial_actions",
+      "expected": "no approval/guarantee language",
+      "observed": "none found",
+      "verdict": "PASS",
+      "reason": "No financial action language detected.",
+      "recording_id": "R03"
+    },
+    {
+      "rule": "http_status_code",
+      "expected": "200",
+      "observed": "200",
+      "verdict": "PASS",
+      "reason": "Expected HTTP 200, got 200.",
+      "recording_id": "R04"
+    },
+    {
+      "rule": "response_status_field",
+      "expected": "CONFLICT",
+      "observed": "ANSWERED",
+      "verdict": "FAIL",
+      "reason": "Expected status=CONFLICT, got ANSWERED.",
+      "recording_id": "R04"
+    },
+    {
+      "rule": "citation_eligibility",
+      "expected": "all cited chunks in ['P02', 'P07', 'P08', 'P09', 'P10', 'P11']",
+      "observed": "cited ['P07']",
+      "verdict": "PASS",
+      "reason": "All cited passages are eligible.",
+      "recording_id": "R04"
+    },
+    {
+      "rule": "quotation_integrity",
+      "expected": "all citation quotes match corpus text",
+      "observed": "all match",
+      "verdict": "PASS",
+      "reason": "All citation quotes faithfully reproduce the source passage.",
+      "recording_id": "R04"
+    },
+    {
+      "rule": "generation_context_eligibility",
+      "expected": "all context ids in ['P02', 'P07', 'P08', 'P09', 'P10', 'P11']",
+      "observed": "sent ['P07', 'P08']",
+      "verdict": "PASS",
+      "reason": "All passages sent to generation are eligible.",
+      "recording_id": "R04"
+    },
+    {
+      "rule": "provider_failure_handling",
+      "expected": "provider event handled correctly",
+      "observed": "provider_event=success, HTTP 200",
+      "verdict": "PASS",
+      "reason": "Provider event does not indicate a failure, or failure is correctly mapped.",
+      "recording_id": "R04"
+    },
+    {
+      "rule": "prohibited_claims",
+      "expected": "answer must not contain: ['INR 12000', 'INR 12,000', 'INR 15000', 'INR 15,000']",
+      "observed": "found: ['INR 12,000'] in 'The annual home-office allowance is INR 12,000.'",
+      "verdict": "FAIL",
+      "reason": "Answer contains prohibited content: ['INR 12,000'].",
+      "recording_id": "R04"
+    },
+    {
+      "rule": "required_facts",
+      "expected": "no required facts defined",
+      "observed": "N/A",
+      "verdict": "PASS",
+      "reason": "No required facts to verify.",
+      "recording_id": "R04"
+    },
+    {
+      "rule": "conflict_detection",
+      "expected": "status=CONFLICT for contradictory passages ['P07', 'P08'] with amounts {12000, 15000}",
+      "observed": "status=ANSWERED",
+      "verdict": "FAIL",
+      "reason": "Contradictory passages (['P07', 'P08']) should yield CONFLICT, got ANSWERED.",
+      "recording_id": "R04"
+    },
+    {
+      "rule": "no_generation_on_invalid_request",
+      "expected": "N/A \u2014 not an invalid/unauthorized request",
+      "observed": "HTTP 200",
+      "verdict": "PASS",
+      "reason": "Check only applies to 400/401 responses.",
+      "recording_id": "R04"
+    },
+    {
+      "rule": "error_body_structure",
+      "expected": "N/A \u2014 not an error response",
+      "observed": "HTTP 200",
+      "verdict": "PASS",
+      "reason": "Check only applies to error responses.",
+      "recording_id": "R04"
+    },
+    {
+      "rule": "no_financial_actions",
+      "expected": "no approval/guarantee language",
+      "observed": "none found",
+      "verdict": "PASS",
+      "reason": "No financial action language detected.",
+      "recording_id": "R04"
+    },
+    {
+      "rule": "http_status_code",
+      "expected": "200",
+      "observed": "200",
+      "verdict": "PASS",
+      "reason": "Expected HTTP 200, got 200.",
+      "recording_id": "R05"
+    },
+    {
+      "rule": "response_status_field",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "observed": "INSUFFICIENT_EVIDENCE",
+      "verdict": "PASS",
+      "reason": "Expected status=INSUFFICIENT_EVIDENCE, got INSUFFICIENT_EVIDENCE.",
+      "recording_id": "R05"
+    },
+    {
+      "rule": "citation_eligibility",
+      "expected": "no citations to check",
+      "observed": "no citations",
+      "verdict": "PASS",
+      "reason": "No citations present; nothing to validate.",
+      "recording_id": "R05"
+    },
+    {
+      "rule": "quotation_integrity",
+      "expected": "no citations to check",
+      "observed": "no citations",
+      "verdict": "PASS",
+      "reason": "No citations; nothing to verify.",
+      "recording_id": "R05"
+    },
+    {
+      "rule": "generation_context_eligibility",
+      "expected": "no context ids to check",
+      "observed": "empty context",
+      "verdict": "PASS",
+      "reason": "No passages sent to generation.",
+      "recording_id": "R05"
+    },
+    {
+      "rule": "provider_failure_handling",
+      "expected": "provider event handled correctly",
+      "observed": "provider_event=not_called, HTTP 200",
+      "verdict": "PASS",
+      "reason": "Provider event does not indicate a failure, or failure is correctly mapped.",
+      "recording_id": "R05"
+    },
+    {
+      "rule": "prohibited_claims",
+      "expected": "no prohibited content",
+      "observed": "no answer text or no prohibitions defined",
+      "verdict": "PASS",
+      "reason": "Nothing to check.",
+      "recording_id": "R05"
+    },
+    {
+      "rule": "required_facts",
+      "expected": "no required facts defined",
+      "observed": "N/A",
+      "verdict": "PASS",
+      "reason": "No required facts to verify.",
+      "recording_id": "R05"
+    },
+    {
+      "rule": "conflict_detection",
+      "expected": "N/A \u2014 question topic not matched to corpus topics",
+      "observed": "N/A",
+      "verdict": "PASS",
+      "reason": "Could not determine topic grouping for conflict analysis.",
+      "recording_id": "R05"
+    },
+    {
+      "rule": "no_generation_on_invalid_request",
+      "expected": "N/A \u2014 not an invalid/unauthorized request",
+      "observed": "HTTP 200",
+      "verdict": "PASS",
+      "reason": "Check only applies to 400/401 responses.",
+      "recording_id": "R05"
+    },
+    {
+      "rule": "error_body_structure",
+      "expected": "N/A \u2014 not an error response",
+      "observed": "HTTP 200",
+      "verdict": "PASS",
+      "reason": "Check only applies to error responses.",
+      "recording_id": "R05"
+    },
+    {
+      "rule": "no_financial_actions",
+      "expected": "no financial commitment language",
+      "observed": "no answer text",
+      "verdict": "PASS",
+      "reason": "No answer to check.",
+      "recording_id": "R05"
+    },
+    {
+      "rule": "http_status_code",
+      "expected": "200",
+      "observed": "200",
+      "verdict": "PASS",
+      "reason": "Expected HTTP 200, got 200.",
+      "recording_id": "R06"
+    },
+    {
+      "rule": "response_status_field",
+      "expected": "ANSWERED",
+      "observed": "ANSWERED",
+      "verdict": "PASS",
+      "reason": "Expected status=ANSWERED, got ANSWERED.",
+      "recording_id": "R06"
+    },
+    {
+      "rule": "citation_eligibility",
+      "expected": "all cited chunks in ['P02', 'P07', 'P08', 'P09', 'P10', 'P11']",
+      "observed": "cited ['P02']",
+      "verdict": "PASS",
+      "reason": "All cited passages are eligible.",
+      "recording_id": "R06"
+    },
+    {
+      "rule": "quotation_integrity",
+      "expected": "all citation quotes match corpus text",
+      "observed": "P02: quote='The annual certification reimbursement limit for employees is INR 35000.' vs corpus='The annual certification reimbursement limit for employees is INR 25000.'",
+      "verdict": "FAIL",
+      "reason": "One or more citation quotes do not match the actual passage text.",
+      "recording_id": "R06"
+    },
+    {
+      "rule": "generation_context_eligibility",
+      "expected": "all context ids in ['P02', 'P07', 'P08', 'P09', 'P10', 'P11']",
+      "observed": "sent ['P02']",
+      "verdict": "PASS",
+      "reason": "All passages sent to generation are eligible.",
+      "recording_id": "R06"
+    },
+    {
+      "rule": "provider_failure_handling",
+      "expected": "provider event handled correctly",
+      "observed": "provider_event=success, HTTP 200",
+      "verdict": "PASS",
+      "reason": "Provider event does not indicate a failure, or failure is correctly mapped.",
+      "recording_id": "R06"
+    },
+    {
+      "rule": "prohibited_claims",
+      "expected": "no prohibited content",
+      "observed": "no answer text or no prohibitions defined",
+      "verdict": "PASS",
+      "reason": "Nothing to check.",
+      "recording_id": "R06"
+    },
+    {
+      "rule": "required_facts",
+      "expected": "answer contains: ['certification reimbursement limit is INR 25000']",
+      "observed": "all present",
+      "verdict": "PASS",
+      "reason": "All required facts found in the answer.",
+      "recording_id": "R06"
+    },
+    {
+      "rule": "conflict_detection",
+      "expected": "no conflict \u2014 single or no eligible passage for topic",
+      "observed": "1 passage(s) for 'certification'",
+      "verdict": "PASS",
+      "reason": "No conflicting passages for this topic.",
+      "recording_id": "R06"
+    },
+    {
+      "rule": "no_generation_on_invalid_request",
+      "expected": "N/A \u2014 not an invalid/unauthorized request",
+      "observed": "HTTP 200",
+      "verdict": "PASS",
+      "reason": "Check only applies to 400/401 responses.",
+      "recording_id": "R06"
+    },
+    {
+      "rule": "error_body_structure",
+      "expected": "N/A \u2014 not an error response",
+      "observed": "HTTP 200",
+      "verdict": "PASS",
+      "reason": "Check only applies to error responses.",
+      "recording_id": "R06"
+    },
+    {
+      "rule": "no_financial_actions",
+      "expected": "no approval/guarantee language",
+      "observed": "none found",
+      "verdict": "PASS",
+      "reason": "No financial action language detected.",
+      "recording_id": "R06"
+    },
+    {
+      "rule": "http_status_code",
+      "expected": "503",
+      "observed": "200",
+      "verdict": "FAIL",
+      "reason": "Expected HTTP 503, got 200.",
+      "recording_id": "R07"
+    },
+    {
+      "rule": "response_status_field",
+      "expected": "no status field (error response)",
+      "observed": "INSUFFICIENT_EVIDENCE",
+      "verdict": "FAIL",
+      "reason": "Error responses must not carry a business-outcome status.",
+      "recording_id": "R07"
+    },
+    {
+      "rule": "citation_eligibility",
+      "expected": "no citations to check",
+      "observed": "no citations",
+      "verdict": "PASS",
+      "reason": "No citations present; nothing to validate.",
+      "recording_id": "R07"
+    },
+    {
+      "rule": "quotation_integrity",
+      "expected": "no citations to check",
+      "observed": "no citations",
+      "verdict": "PASS",
+      "reason": "No citations; nothing to verify.",
+      "recording_id": "R07"
+    },
+    {
+      "rule": "generation_context_eligibility",
+      "expected": "all context ids in ['P02', 'P07', 'P08', 'P09', 'P10', 'P11']",
+      "observed": "sent ['P02']",
+      "verdict": "PASS",
+      "reason": "All passages sent to generation are eligible.",
+      "recording_id": "R07"
+    },
+    {
+      "rule": "provider_failure_handling",
+      "expected": "HTTP 503 for provider timeout",
+      "observed": "HTTP 200 with status=INSUFFICIENT_EVIDENCE",
+      "verdict": "FAIL",
+      "reason": "Provider timeout must return HTTP 503, not a business-outcome response.",
+      "recording_id": "R07"
+    },
+    {
+      "rule": "prohibited_claims",
+      "expected": "no prohibited content",
+      "observed": "no answer text or no prohibitions defined",
+      "verdict": "PASS",
+      "reason": "Nothing to check.",
+      "recording_id": "R07"
+    },
+    {
+      "rule": "required_facts",
+      "expected": "no required facts defined",
+      "observed": "N/A",
+      "verdict": "PASS",
+      "reason": "No required facts to verify.",
+      "recording_id": "R07"
+    },
+    {
+      "rule": "conflict_detection",
+      "expected": "no conflict \u2014 single or no eligible passage for topic",
+      "observed": "1 passage(s) for 'certification'",
+      "verdict": "PASS",
+      "reason": "No conflicting passages for this topic.",
+      "recording_id": "R07"
+    },
+    {
+      "rule": "no_generation_on_invalid_request",
+      "expected": "N/A \u2014 not an invalid/unauthorized request",
+      "observed": "HTTP 200",
+      "verdict": "PASS",
+      "reason": "Check only applies to 400/401 responses.",
+      "recording_id": "R07"
+    },
+    {
+      "rule": "error_body_structure",
+      "expected": "N/A \u2014 not an error response",
+      "observed": "HTTP 200",
+      "verdict": "PASS",
+      "reason": "Check only applies to error responses.",
+      "recording_id": "R07"
+    },
+    {
+      "rule": "no_financial_actions",
+      "expected": "no financial commitment language",
+      "observed": "no answer text",
+      "verdict": "PASS",
+      "reason": "No answer to check.",
+      "recording_id": "R07"
+    },
+    {
+      "rule": "http_status_code",
+      "expected": "200",
+      "observed": "200",
+      "verdict": "PASS",
+      "reason": "Expected HTTP 200, got 200.",
+      "recording_id": "R08"
+    },
+    {
+      "rule": "response_status_field",
+      "expected": "ANSWERED",
+      "observed": "ANSWERED",
+      "verdict": "PASS",
+      "reason": "Expected status=ANSWERED, got ANSWERED.",
+      "recording_id": "R08"
+    },
+    {
+      "rule": "citation_eligibility",
+      "expected": "all cited chunks in ['P02', 'P07', 'P08', 'P09', 'P10', 'P11']",
+      "observed": "cited ['P02']",
+      "verdict": "PASS",
+      "reason": "All cited passages are eligible.",
+      "recording_id": "R08"
+    },
+    {
+      "rule": "quotation_integrity",
+      "expected": "all citation quotes match corpus text",
+      "observed": "all match",
+      "verdict": "PASS",
+      "reason": "All citation quotes faithfully reproduce the source passage.",
+      "recording_id": "R08"
+    },
+    {
+      "rule": "generation_context_eligibility",
+      "expected": "all context ids in ['P02', 'P07', 'P08', 'P09', 'P10', 'P11']",
+      "observed": "sent ['P02', 'P06'], ineligible: ['P06']",
+      "verdict": "FAIL",
+      "reason": "Ineligible passage(s) sent to generation: ['P06'].",
+      "recording_id": "R08"
+    },
+    {
+      "rule": "provider_failure_handling",
+      "expected": "provider event handled correctly",
+      "observed": "provider_event=success, HTTP 200",
+      "verdict": "PASS",
+      "reason": "Provider event does not indicate a failure, or failure is correctly mapped.",
+      "recording_id": "R08"
+    },
+    {
+      "rule": "prohibited_claims",
+      "expected": "no prohibited content",
+      "observed": "no answer text or no prohibitions defined",
+      "verdict": "PASS",
+      "reason": "Nothing to check.",
+      "recording_id": "R08"
+    },
+    {
+      "rule": "required_facts",
+      "expected": "answer contains: ['certification reimbursement limit is INR 25000']",
+      "observed": "all present",
+      "verdict": "PASS",
+      "reason": "All required facts found in the answer.",
+      "recording_id": "R08"
+    },
+    {
+      "rule": "conflict_detection",
+      "expected": "no conflict \u2014 single or no eligible passage for topic",
+      "observed": "1 passage(s) for 'certification'",
+      "verdict": "PASS",
+      "reason": "No conflicting passages for this topic.",
+      "recording_id": "R08"
+    },
+    {
+      "rule": "no_generation_on_invalid_request",
+      "expected": "N/A \u2014 not an invalid/unauthorized request",
+      "observed": "HTTP 200",
+      "verdict": "PASS",
+      "reason": "Check only applies to 400/401 responses.",
+      "recording_id": "R08"
+    },
+    {
+      "rule": "error_body_structure",
+      "expected": "N/A \u2014 not an error response",
+      "observed": "HTTP 200",
+      "verdict": "PASS",
+      "reason": "Check only applies to error responses.",
+      "recording_id": "R08"
+    },
+    {
+      "rule": "no_financial_actions",
+      "expected": "no approval/guarantee language",
+      "observed": "none found",
+      "verdict": "PASS",
+      "reason": "No financial action language detected.",
+      "recording_id": "R08"
+    },
+    {
+      "rule": "http_status_code",
+      "expected": "200",
+      "observed": "200",
+      "verdict": "PASS",
+      "reason": "Expected HTTP 200, got 200.",
+      "recording_id": "R09"
+    },
+    {
+      "rule": "response_status_field",
+      "expected": "ANSWERED",
+      "observed": "ANSWERED",
+      "verdict": "PASS",
+      "reason": "Expected status=ANSWERED, got ANSWERED.",
+      "recording_id": "R09"
+    },
+    {
+      "rule": "citation_eligibility",
+      "expected": "all cited chunks in ['P02', 'P07', 'P08', 'P09', 'P10', 'P11']",
+      "observed": "cited ['P06'], ineligible: ['P06']",
+      "verdict": "FAIL",
+      "reason": "Citations include ineligible passage(s): ['P06'].",
+      "recording_id": "R09"
+    },
+    {
+      "rule": "quotation_integrity",
+      "expected": "all citation quotes match corpus text",
+      "observed": "all match",
+      "verdict": "PASS",
+      "reason": "All citation quotes faithfully reproduce the source passage.",
+      "recording_id": "R09"
+    },
+    {
+      "rule": "generation_context_eligibility",
+      "expected": "all context ids in ['P02', 'P07', 'P08', 'P09', 'P10', 'P11']",
+      "observed": "sent ['P06'], ineligible: ['P06']",
+      "verdict": "FAIL",
+      "reason": "Ineligible passage(s) sent to generation: ['P06'].",
+      "recording_id": "R09"
+    },
+    {
+      "rule": "provider_failure_handling",
+      "expected": "provider event handled correctly",
+      "observed": "provider_event=success, HTTP 200",
+      "verdict": "PASS",
+      "reason": "Provider event does not indicate a failure, or failure is correctly mapped.",
+      "recording_id": "R09"
+    },
+    {
+      "rule": "prohibited_claims",
+      "expected": "answer must not contain: ['INR 80000', 'INR 80,000', 'Boreal']",
+      "observed": "found: ['INR 80,000'] in 'Your annual certification limit is INR 80,000.'",
+      "verdict": "FAIL",
+      "reason": "Answer contains prohibited content: ['INR 80,000'].",
+      "recording_id": "R09"
+    },
+    {
+      "rule": "required_facts",
+      "expected": "answer contains: ['certification reimbursement limit is INR 25000']",
+      "observed": "missing: ['certification reimbursement limit is INR 25000'] in 'Your annual certification limit is INR 80,000.'",
+      "verdict": "FAIL",
+      "reason": "Required facts not found in answer: ['certification reimbursement limit is INR 25000'].",
+      "recording_id": "R09"
+    },
+    {
+      "rule": "conflict_detection",
+      "expected": "no conflict \u2014 single or no eligible passage for topic",
+      "observed": "1 passage(s) for 'certification'",
+      "verdict": "PASS",
+      "reason": "No conflicting passages for this topic.",
+      "recording_id": "R09"
+    },
+    {
+      "rule": "no_generation_on_invalid_request",
+      "expected": "N/A \u2014 not an invalid/unauthorized request",
+      "observed": "HTTP 200",
+      "verdict": "PASS",
+      "reason": "Check only applies to 400/401 responses.",
+      "recording_id": "R09"
+    },
+    {
+      "rule": "error_body_structure",
+      "expected": "N/A \u2014 not an error response",
+      "observed": "HTTP 200",
+      "verdict": "PASS",
+      "reason": "Check only applies to error responses.",
+      "recording_id": "R09"
+    },
+    {
+      "rule": "no_financial_actions",
+      "expected": "no approval/guarantee language",
+      "observed": "none found",
+      "verdict": "PASS",
+      "reason": "No financial action language detected.",
+      "recording_id": "R09"
+    },
+    {
+      "rule": "http_status_code",
+      "expected": "200",
+      "observed": "200",
+      "verdict": "PASS",
+      "reason": "Expected HTTP 200, got 200.",
+      "recording_id": "R10"
+    },
+    {
+      "rule": "response_status_field",
+      "expected": "ANSWERED",
+      "observed": "ANSWERED",
+      "verdict": "PASS",
+      "reason": "Expected status=ANSWERED, got ANSWERED.",
+      "recording_id": "R10"
+    },
+    {
+      "rule": "citation_eligibility",
+      "expected": "all cited chunks in ['P02', 'P07', 'P08', 'P09', 'P10', 'P11']",
+      "observed": "cited ['P02']",
+      "verdict": "PASS",
+      "reason": "All cited passages are eligible.",
+      "recording_id": "R10"
+    },
+    {
+      "rule": "quotation_integrity",
+      "expected": "all citation quotes match corpus text",
+      "observed": "all match",
+      "verdict": "PASS",
+      "reason": "All citation quotes faithfully reproduce the source passage.",
+      "recording_id": "R10"
+    },
+    {
+      "rule": "generation_context_eligibility",
+      "expected": "all context ids in ['P02', 'P07', 'P08', 'P09', 'P10', 'P11']",
+      "observed": "sent ['P02']",
+      "verdict": "PASS",
+      "reason": "All passages sent to generation are eligible.",
+      "recording_id": "R10"
+    },
+    {
+      "rule": "provider_failure_handling",
+      "expected": "provider event handled correctly",
+      "observed": "provider_event=success, HTTP 200",
+      "verdict": "PASS",
+      "reason": "Provider event does not indicate a failure, or failure is correctly mapped.",
+      "recording_id": "R10"
+    },
+    {
+      "rule": "prohibited_claims",
+      "expected": "answer must not contain: ['approved', 'guaranteed', 'payment is guaranteed', 'claim is approved']",
+      "observed": "found: ['approved', 'guaranteed', 'payment is guaranteed', 'claim is approved'] in 'The cap is INR 25,000 per year. Your claim is approved and payment is guaranteed.'",
+      "verdict": "FAIL",
+      "reason": "Answer contains prohibited content: ['approved', 'guaranteed', 'payment is guaranteed', 'claim is approved'].",
+      "recording_id": "R10"
+    },
+    {
+      "rule": "required_facts",
+      "expected": "answer contains: ['certification limit or cap is INR 25000']",
+      "observed": "all present",
+      "verdict": "PASS",
+      "reason": "All required facts found in the answer.",
+      "recording_id": "R10"
+    },
+    {
+      "rule": "conflict_detection",
+      "expected": "no conflict \u2014 single or no eligible passage for topic",
+      "observed": "1 passage(s) for 'certification'",
+      "verdict": "PASS",
+      "reason": "No conflicting passages for this topic.",
+      "recording_id": "R10"
+    },
+    {
+      "rule": "no_generation_on_invalid_request",
+      "expected": "N/A \u2014 not an invalid/unauthorized request",
+      "observed": "HTTP 200",
+      "verdict": "PASS",
+      "reason": "Check only applies to 400/401 responses.",
+      "recording_id": "R10"
+    },
+    {
+      "rule": "error_body_structure",
+      "expected": "N/A \u2014 not an error response",
+      "observed": "HTTP 200",
+      "verdict": "PASS",
+      "reason": "Check only applies to error responses.",
+      "recording_id": "R10"
+    },
+    {
+      "rule": "no_financial_actions",
+      "expected": "no approval/guarantee language",
+      "observed": "found patterns: ['\\\\bapproved\\\\b', '\\\\bguarantee[ds]?\\\\b', '\\\\bpayment is guaranteed\\\\b', '\\\\bclaim is approved\\\\b'] in 'The cap is INR 25,000 per year. Your claim is approved and payment is guaranteed.'",
+      "verdict": "FAIL",
+      "reason": "Answer contains language that approves claims or guarantees payment.",
+      "recording_id": "R10"
+    },
+    {
+      "rule": "http_status_code",
+      "expected": "200",
+      "observed": "200",
+      "verdict": "PASS",
+      "reason": "Expected HTTP 200, got 200.",
+      "recording_id": "R11"
+    },
+    {
+      "rule": "response_status_field",
+      "expected": "ANSWERED",
+      "observed": "ANSWERED",
+      "verdict": "PASS",
+      "reason": "Expected status=ANSWERED, got ANSWERED.",
+      "recording_id": "R11"
+    },
+    {
+      "rule": "citation_eligibility",
+      "expected": "all cited chunks in ['P02', 'P07', 'P08', 'P09', 'P10', 'P11']",
+      "observed": "cited ['P02']",
+      "verdict": "PASS",
+      "reason": "All cited passages are eligible.",
+      "recording_id": "R11"
+    },
+    {
+      "rule": "quotation_integrity",
+      "expected": "all citation quotes match corpus text",
+      "observed": "all match",
+      "verdict": "PASS",
+      "reason": "All citation quotes faithfully reproduce the source passage.",
+      "recording_id": "R11"
+    },
+    {
+      "rule": "generation_context_eligibility",
+      "expected": "all context ids in ['P02', 'P07', 'P08', 'P09', 'P10', 'P11']",
+      "observed": "sent ['P02']",
+      "verdict": "PASS",
+      "reason": "All passages sent to generation are eligible.",
+      "recording_id": "R11"
+    },
+    {
+      "rule": "provider_failure_handling",
+      "expected": "provider event handled correctly",
+      "observed": "provider_event=success, HTTP 200",
+      "verdict": "PASS",
+      "reason": "Provider event does not indicate a failure, or failure is correctly mapped.",
+      "recording_id": "R11"
+    },
+    {
+      "rule": "prohibited_claims",
+      "expected": "no prohibited content",
+      "observed": "no answer text or no prohibitions defined",
+      "verdict": "PASS",
+      "reason": "Nothing to check.",
+      "recording_id": "R11"
+    },
+    {
+      "rule": "required_facts",
+      "expected": "answer contains: ['certification reimbursement limit is INR 25000 or 25,000']",
+      "observed": "all present",
+      "verdict": "PASS",
+      "reason": "All required facts found in the answer.",
+      "recording_id": "R11"
+    },
+    {
+      "rule": "conflict_detection",
+      "expected": "no conflict \u2014 single or no eligible passage for topic",
+      "observed": "1 passage(s) for 'certification'",
+      "verdict": "PASS",
+      "reason": "No conflicting passages for this topic.",
+      "recording_id": "R11"
+    },
+    {
+      "rule": "no_generation_on_invalid_request",
+      "expected": "N/A \u2014 not an invalid/unauthorized request",
+      "observed": "HTTP 200",
+      "verdict": "PASS",
+      "reason": "Check only applies to 400/401 responses.",
+      "recording_id": "R11"
+    },
+    {
+      "rule": "error_body_structure",
+      "expected": "N/A \u2014 not an error response",
+      "observed": "HTTP 200",
+      "verdict": "PASS",
+      "reason": "Check only applies to error responses.",
+      "recording_id": "R11"
+    },
+    {
+      "rule": "no_financial_actions",
+      "expected": "no approval/guarantee language",
+      "observed": "none found",
+      "verdict": "PASS",
+      "reason": "No financial action language detected.",
+      "recording_id": "R11"
+    },
+    {
+      "rule": "http_status_code",
+      "expected": "400",
+      "observed": "400",
+      "verdict": "PASS",
+      "reason": "Expected HTTP 400, got 400.",
+      "recording_id": "R12"
+    },
+    {
+      "rule": "response_status_field",
+      "expected": "no status field (error response)",
+      "observed": "<absent>",
+      "verdict": "PASS",
+      "reason": "Error responses must not carry a business-outcome status.",
+      "recording_id": "R12"
+    },
+    {
+      "rule": "generation_context_eligibility",
+      "expected": "no context ids to check",
+      "observed": "empty context",
+      "verdict": "PASS",
+      "reason": "No passages sent to generation.",
+      "recording_id": "R12"
+    },
+    {
+      "rule": "provider_failure_handling",
+      "expected": "provider event handled correctly",
+      "observed": "provider_event=not_called, HTTP 400",
+      "verdict": "PASS",
+      "reason": "Provider event does not indicate a failure, or failure is correctly mapped.",
+      "recording_id": "R12"
+    },
+    {
+      "rule": "prohibited_claims",
+      "expected": "no prohibited content",
+      "observed": "no answer text or no prohibitions defined",
+      "verdict": "PASS",
+      "reason": "Nothing to check.",
+      "recording_id": "R12"
+    },
+    {
+      "rule": "required_facts",
+      "expected": "no required facts defined",
+      "observed": "N/A",
+      "verdict": "PASS",
+      "reason": "No required facts to verify.",
+      "recording_id": "R12"
+    },
+    {
+      "rule": "no_generation_on_invalid_request",
+      "expected": "generation_attempts=0, provider_event=not_called",
+      "observed": "generation_attempts=0, provider_event=not_called",
+      "verdict": "PASS",
+      "reason": "No generation invoked for invalid request.",
+      "recording_id": "R12"
+    },
+    {
+      "rule": "error_body_structure",
+      "expected": "{error: {code: non-empty, message: non-empty}}",
+      "observed": "code=INVALID_REQUEST",
+      "verdict": "PASS",
+      "reason": "Error body has correct structure.",
+      "recording_id": "R12"
+    },
+    {
+      "rule": "no_financial_actions",
+      "expected": "no financial commitment language",
+      "observed": "no answer text",
+      "verdict": "PASS",
+      "reason": "No answer to check.",
+      "recording_id": "R12"
+    }
+  ]
+}
